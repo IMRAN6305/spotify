@@ -5,6 +5,8 @@ import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 
+import '../../choose_mode/pages/choose_mode.dart';
+
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
 
@@ -14,10 +16,16 @@ class GetStarted extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            padding:const EdgeInsets.symmetric(horizontal: 40,vertical: 40),
-            decoration:const BoxDecoration(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill, image: AssetImage(AppImages.introBG))),
+          ),
+          Container(
+              color: Colors.black.withOpacity(0.15)
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 40.0,horizontal: 40.0),
             child: Column(
               children: [
                 Align(
@@ -25,7 +33,7 @@ class GetStarted extends StatelessWidget {
                   alignment: Alignment.topCenter,
                 ),
                 const Spacer(),
-               const Text(
+                const Text(
                   "Enjoy Listening To Music",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -35,7 +43,7 @@ class GetStarted extends StatelessWidget {
                 const SizedBox(
                   height: 21,
                 ),
-               const Text(
+                const Text(
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
@@ -46,7 +54,16 @@ class GetStarted extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                BasicAppButton(onPressed: (){}, title: "Get Started",)
+                BasicAppButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseModepage(),
+                        ));
+                  },
+                  title: "Get Started",
+                ),
 
               ],
             ),
