@@ -5,10 +5,11 @@ import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/data/models/auth/create_auth_req.dart';
 import 'package:spotify/presentation/auth/pages/signin.dart';
-import 'package:spotify/presentation/root/pages/root.dart';
+
 
 import '../../../domain/usecases/auth/signup.dart';
 import '../../../service_locator.dart';
+import '../../home/pages/home.dart';
 
 class Singup extends StatelessWidget {
   Singup({super.key});
@@ -27,7 +28,7 @@ class Singup extends StatelessWidget {
           width: 40,
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,14 +58,14 @@ class Singup extends StatelessWidget {
                         password: _password.text.toString()));
                 result.fold(
                   (l) {
-                    var snakbar = SnackBar(content: Text(l));
-                    ScaffoldMessenger.of(context).showSnackBar(snakbar);
+                    var snackbar = SnackBar(content: Text(l));
+                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   },
                   (r) {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RootPage(),
+                        builder: (context) => HomePage(),
                       ),
                       (route) => false,
                     );
