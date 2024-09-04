@@ -68,7 +68,7 @@ class NewsSongs extends StatelessWidget {
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                '${AppUrls.firestorage}${songs[index].title}.jpg?${AppUrls.mediaAlt}',
+                                '${AppUrls.CoverFirestorage}${songs[index].title}.jpg?${AppUrls.mediaAlt}',
                               ),
                             )),
                         child: Align(
