@@ -82,7 +82,9 @@ class SongPlayerPage extends StatelessWidget {
             )
           ],
         ),
-        FavoriteButton(songEntity: songEntity,)
+        FavoriteButton(
+          songEntity: songEntity,
+        )
       ],
     );
   }
